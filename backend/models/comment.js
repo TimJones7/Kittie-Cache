@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-//  Define Ticket Schema
+//  Define Comment Schema
 const commentSchema = new Schema(
    {
       body: {

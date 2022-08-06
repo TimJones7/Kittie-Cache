@@ -24,7 +24,7 @@ const ticketSchema = new Schema(
       createdBy: {
          type: mongoose.SchemaTypes.ObjectId,
          ref: "User",
-         required: true,
+         required: false,
          default: null,
          immutable: true,
       },
