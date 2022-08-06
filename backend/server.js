@@ -18,11 +18,6 @@ app.use((req, res, next) => {
    next();
 });
 
-//Register Routers in request pipeline.
-app.use("/api/comments", commentRoutes);
-app.use("/api/projects", projectRoutes);
-app.use("/api/tickets", ticketRoutes);
-
 //connect to DB
 mongoose
    .connect(process.env.MONGO_URI)
@@ -32,3 +27,8 @@ mongoose
       }); //Listen for requests
    })
    .catch((err) => console.log(err));
+
+//Register Routers in request pipeline.
+app.use("/api/comments", commentRoutes);
+app.use("/api/projects", projectRoutes);
+app.use("/api/tickets", ticketRoutes);

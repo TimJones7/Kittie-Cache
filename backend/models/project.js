@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-//  Define Ticket Schema
+//  Define Project Schema
 const projectSchema = new Schema(
    {
       title: {
@@ -28,8 +28,11 @@ const projectSchema = new Schema(
          type: Date,
          required: false,
       },
+      /*
       tickets: [{ type: ObjectId, ref: "Ticket" }],
       contributors: [{ type: ObjectId, ref: "User" }],
+      comments: [{ type: ObjectId, ref: "Comment" }],
+      */
    },
    { timestamps: true }
 );
