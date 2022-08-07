@@ -1,4 +1,5 @@
 const express = require("express");
+
 const {
    getComments,
    getCommentById,
@@ -6,6 +7,7 @@ const {
    deleteComment,
    updateComment,
 } = require("../crud/commentCRUD");
+
 const router = express.Router();
 
 //Get All Comments----------------------------------------------------------
