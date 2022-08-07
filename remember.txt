@@ -1,0 +1,5 @@
+docker run --name mern-test -p 3000:3000 --rm -v "B:\node\MERN_Stack\backend":/app -v /app/node_modules mern-tut:nodemon
+
+# Above code outdated by use of docker-compose file
+
+Backend is exposed on port 3000
