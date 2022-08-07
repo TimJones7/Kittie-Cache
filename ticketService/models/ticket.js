@@ -17,20 +17,18 @@ const ticketSchema = new Schema(
       },
       state: {
          type: String,
-         enum: ["To-Do", "Doing", "Done"],
+         enum: ["To-Do", "Doing", "Done", "Cancelled"],
          default: "To-Do",
          required: true,
       },
       createdBy: {
-         type: mongoose.SchemaTypes.ObjectId,
-         ref: "User",
+         type: String,
          required: false,
          default: null,
          immutable: true,
       },
       assignedTo: {
-         type: mongoose.SchemaTypes.ObjectId,
-         ref: "User",
+         type: String,
          required: false,
          default: null,
       },

@@ -10,8 +10,7 @@ const commentSchema = new Schema(
          required: true,
       },
       createdBy: {
-         type: mongoose.SchemaTypes.ObjectId,
-         ref: "User",
+         type: String,
          required: false,
          default: null,
       },
