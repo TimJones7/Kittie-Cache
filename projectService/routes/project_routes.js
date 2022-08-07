@@ -9,6 +9,7 @@ router.get("/", (req, res) => {
 
 //Get Single Project----------------------------------------------------------
 router.get("/:id", (req, res) => {
+   
    const id = req.params.id;
    res.json({ mssg: `Getting single Project ${id}` });
 });

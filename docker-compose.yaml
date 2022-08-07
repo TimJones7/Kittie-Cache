@@ -1,10 +1,26 @@
 version: "3.8" 
 services: 
-  backend:
-    build: ./backend
-    container_name: backend_c
+  commentservice:
+    build: ./commentService
+    container_name: commentService_c
     ports:
       - '3000:3000'
     volumes:
-      - ./backend:/app
+      - ./commentService:/app
+      - /app/node_modules
+  projectservice:
+    build: ./projectService
+    container_name: projectService_c
+    ports:
+      - '4000:4000'
+    volumes:
+      - ./projectService:/app
+      - /app/node_modules
+  ticketservice:
+    build: ./ticketService
+    container_name: ticketService_c
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./ticketService:/app
       - /app/node_modules
