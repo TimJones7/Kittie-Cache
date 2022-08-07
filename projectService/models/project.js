@@ -18,8 +18,7 @@ const projectSchema = new Schema(
          default: true,
       },
       createdBy: {
-         type: mongoose.SchemaTypes.ObjectId,
-         ref: "User",
+         type: String,
          required: false,
          default: null,
          immutable: true,
@@ -28,11 +27,9 @@ const projectSchema = new Schema(
          type: Date,
          required: false,
       },
-      /*
-      tickets: [{ type: ObjectId, ref: "Ticket" }],
-      contributors: [{ type: ObjectId, ref: "User" }],
-      comments: [{ type: ObjectId, ref: "Comment" }],
-      */
+      comment_ids: [],
+      ticket_ids: [],
+      contributingUser_ids: [],
    },
    { timestamps: true }
 );

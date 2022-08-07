@@ -2,4 +2,6 @@ docker run --name mern-test -p 3000:3000 --rm -v "B:\node\MERN_Stack\backend":/a
 
 # Above code outdated by use of docker-compose file
 
-Backend is exposed on port 3000
+Comments are exposed on port 3000
+Projects are exposed on port 4000
+Tickets are exposed on port 5000
