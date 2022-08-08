@@ -1,11 +1,13 @@
 require("dotenv").config();
 
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const projectRoutes = require("./routes/project_routes");
 
 const app = express(); //Creates express APP
 
+app.use(cors());
 app.use(express.json()); //Add middleware to parse json automatically
 
 app.use((req, res, next) => {

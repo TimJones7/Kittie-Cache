@@ -2,11 +2,13 @@ require("dotenv").config();
 
 // 'Imports'
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const ticketRoutes = require("./routes/ticket_routes");
 
 const app = express(); //Creates express APP
 
+app.use(cors());
 app.use(express.json()); //Add middleware to parse json automatically
 
 app.use((req, res, next) => {
