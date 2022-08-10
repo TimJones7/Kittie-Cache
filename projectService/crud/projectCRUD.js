@@ -25,12 +25,14 @@ const getProjectById = async (req, res) => {
 
 //Create new----------------------------------------------------------
 const createProject = async (req, res) => {
-   const { title, details } = req.body;
+   const { title, details, isPublic, goalCompletionDate } = req.body;
    //Add Doc to DB
    try {
       const project = await Project.create({
          title,
          details,
+         isPublic,
+         goalCompletionDate,
       });
       res.status(200).json(project);
    } catch (error) {

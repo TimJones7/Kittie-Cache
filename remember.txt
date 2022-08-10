@@ -2,6 +2,29 @@ docker run --name mern-test -p 3000:3000 --rm -v "B:\node\MERN_Stack\backend":/a
 
 # Above code outdated by use of docker-compose file
 
+frontend is exposed on port 2000
 Comments are exposed on port 3000
 Projects are exposed on port 4000
 Tickets are exposed on port 5000
+
+
+
+
+------ FRONTEND Color Palette ------
+
+--layout colors--
+lightest white - #f3f4f7
+lightest grey - #caccd1
+darker grey - #52565e
+dark green - #0a8ea0 
+blue - #037ef3
+
+--information colors--
+redorange - #f85a40
+orange - #f48924
+yellow - #ffc845
+light green - #30c39e
+
+
+
+
