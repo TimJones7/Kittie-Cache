@@ -1,4 +1,6 @@
-import React from "react";
+import { React, useState } from "react";
+
+import { Link } from "react-router-dom";
 
 const SideNav = () => {
    const navRoutes = [
@@ -34,9 +36,11 @@ const SideNav = () => {
       },
    ];
 
+   const [activeLink, setActiveLink] = useState();
+
    return (
       <div className=" flex-col fixed justify-between w-[20%] xl:w-[250px] h-screen bg-slate-300 dark:bg-slate-800 hidden md:flex border-r-2 ">
-         <div className=" dark:bg-emerald-600 bg-cyan-600 p-4 text-center text-xl h-[60px] font-extrabold ">
+         <div className="dark:bg-emerald-600 bg-cyan-600 p-4 text-center text-xl h-[60px] font-extrabold ">
             My Kromanage
          </div>
          <ul className=" dark:text-sitelightgray text-slate-800 text-2xl justify-start">
@@ -47,9 +51,14 @@ const SideNav = () => {
                   key={navRoute.id}
                   className="flex flex-row justify-between items-center text-start mx-10 hover:text-indigo-500 my-2 p-2 border-l-4 dark:hover:text-siteredorange  hover:border-indigo-500 dark:hover:border-siteredorange border-slate-800 dark:border-sitelightgray"
                >
-                  <a href={navRoute.route}>{navRoute.name}</a>
+                  <Link
+                     to={navRoute.route}
+                     onClick={() => setActiveLink(navRoute.route)}
+                  >
+                     {navRoute.name}
+                  </Link>
                   <div>
-                     {window.location.pathname === navRoute.route ? (
+                     {navRoute.route === activeLink ? (
                         <img
                            src="https://img.icons8.com/fluency/50/000000/long-arrow-left.png"
                            alt="ActiveNavIcon"

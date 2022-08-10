@@ -24,26 +24,34 @@ function App() {
             isDark ? "flex bg-slate-600 dark" : "flex bg-sitelightgray "
          }
       >
-         <SideNav />
-         <div className="flex flex-col w-[100%]  md:ml-[20%] xl:ml-[250px]   min-h-screen mx-auto justify-between">
-            <div>
-               <TopBar isDark={isDark} setDarkTheme={setDarkTheme} />
-               <DataBar />
-            </div>
-            <BrowserRouter className=" flex ">
-               <div className=" mx-auto p-5">
-                  <Routes>
-                     <Route path="/" element={<Home />} />
-                     <Route path="/CreateProject" element={<CreateProject />} />
-                     <Route path="/MyProjects" element={<MyProjects />} />
-                     <Route path="/MyTickets" element={<MyTickets />} />
-                     <Route path="/MyProfile" element={<MyProfile />} />
-                     <Route path="/FindProjects" element={<FindProjects />} />
-                  </Routes>
+         <BrowserRouter>
+            <SideNav />
+            <div className="flex flex-col w-[100%]  md:ml-[20%] xl:ml-[250px]   min-h-screen mx-auto justify-between">
+               <div>
+                  <TopBar isDark={isDark} setDarkTheme={setDarkTheme} />
+                  <DataBar />
                </div>
-            </BrowserRouter>
-            <Footer />
-         </div>
+               <div className=" flex ">
+                  <div className=" mx-auto p-5">
+                     <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route
+                           path="/CreateProject"
+                           element={<CreateProject />}
+                        />
+                        <Route path="/MyProjects" element={<MyProjects />} />
+                        <Route path="/MyTickets" element={<MyTickets />} />
+                        <Route path="/MyProfile" element={<MyProfile />} />
+                        <Route
+                           path="/FindProjects"
+                           element={<FindProjects />}
+                        />
+                     </Routes>
+                  </div>
+               </div>
+               <Footer />
+            </div>
+         </BrowserRouter>
       </main>
    );
 }
