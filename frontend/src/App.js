@@ -1,24 +1,40 @@
 import "./output.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 // Pages & Components
 import Home from "./pages/Home";
+import CreateProject from "./pages/CreateProject";
 import SideNav from "./components/Nav";
 import TopBar from "./components/TopBar";
+import Footer from "./components/Footer";
+import DataBar from "./components/DataBar";
 
 function App() {
+   const currentTheme = localStorage.getItem("theme") === "dark";
+   const [isDark, setDarkTheme] = useState(currentTheme);
+
    return (
-      <main className="flex">
+      <main
+         className={
+            isDark ? "flex bg-slate-600 dark" : "flex bg-sitelightgray "
+         }
+      >
          <SideNav />
-         <div className="w-[100%] flex flex-col bg-sitelightgray md:ml-[20%] xl:ml-[250px] dark:bg-sitedarkblue dark:text-sitelightgray mx-auto">
-            <BrowserRouter>
-               <TopBar />
-               <div className=" flex text-center mx-auto p-5">
+         <div className="flex flex-col w-[100%]  md:ml-[20%] xl:ml-[250px]   min-h-screen mx-auto justify-between">
+            <div>
+               <TopBar isDark={isDark} setDarkTheme={setDarkTheme} />
+               <DataBar />
+            </div>
+            <BrowserRouter className=" flex ">
+               <div className=" mx-auto p-5">
                   <Routes>
                      <Route path="/" element={<Home />} />
+                     <Route path="/CreateProject" element={<CreateProject />} />
                   </Routes>
                </div>
             </BrowserRouter>
+            <Footer />
          </div>
       </main>
    );

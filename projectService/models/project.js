@@ -13,7 +13,7 @@ const projectSchema = new Schema(
          type: String,
          required: true,
       },
-      public: {
+      isPublic: {
          type: Boolean,
          default: true,
       },

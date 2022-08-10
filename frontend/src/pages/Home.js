@@ -16,26 +16,29 @@ const Home = () => {
    }, []);
 
    return (
-      <div className="flex flex-col bg-base-100 text-center">
-         {projects &&
-            projects.map((project) => (
-               <div key={project._id} className="p-4 m-2 border ">
-                  <div className="flex flex-col">
-                     <div>
-                        <b>Id: </b> {project._id}
-                     </div>
-                     <div>
-                        <b>Title: </b> {project.title}
-                     </div>
-                     <div>
-                        <b>Details: </b> {project.details}
-                     </div>
-                     <div>
-                        <b>Created: </b> {project.createdAt}
-                     </div>
-                  </div>
-               </div>
-            ))}
+      <div className=" border  p-4 ">
+         <table className=" table-auto ">
+            <thead>
+               <tr className=" p-4 ">
+                  <th className=" ">Title</th>
+                  <th className=" ">Details</th>
+                  <th className=" ">Due Date</th>
+                  <th className=" ">isPublic</th>
+               </tr>
+            </thead>
+
+            <tbody>
+               {projects &&
+                  projects.map((project) => (
+                     <tr key={project._id}>
+                        <td>{project.title}</td>
+                        <td>{project.details}</td>
+                        <td>{project.goalCompletionDate}</td>
+                        <td>{project.isPublic.toString()}</td>
+                     </tr>
+                  ))}
+            </tbody>
+         </table>
       </div>
    );
 };

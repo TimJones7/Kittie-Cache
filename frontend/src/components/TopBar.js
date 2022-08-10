@@ -1,12 +1,33 @@
 import React from "react";
 
-const TopBar = () => {
+const TopBar = ({ isDark, setDarkTheme }) => {
+   const themeSwitch = () => {
+      if (isDark) {
+         setDarkTheme(false);
+         localStorage.setItem("theme", "light");
+      }
+      if (!isDark) {
+         setDarkTheme(true);
+         localStorage.setItem("theme", "dark");
+      }
+   };
+
    return (
-      <section className=" mx-auto mt-0 w-[100%] p-2">
-         <div className="flex flex-row justify-around">
-            <div>Logo</div>
+      <section className=" mx-auto mt-0 w-[100%] p-3 bg-sitedarkgray dark:bg-slate-800 h-[60px]  ">
+         <div className="flex flex-row justify-between">
             <div>
-               <form className="flex items-center">
+               {isDark ? (
+                  <button onClick={() => themeSwitch()} className=" p-1">
+                     <img src="https://img.icons8.com/external-others-inmotus-design/30/000000/external-Sun-sun-others-inmotus-design-6.png"></img>
+                  </button>
+               ) : (
+                  <button onClick={() => themeSwitch()} className=" p-1">
+                     <img src="https://img.icons8.com/external-phatplus-lineal-color-phatplus/30/000000/external-moon-aerospace-phatplus-lineal-color-phatplus.png"></img>
+                  </button>
+               )}
+            </div>
+            <div className="hidden md:block">
+               <form className="flex items-center ">
                   <label className="sr-only">Search</label>
                   <div className="relative w-full">
                      <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -39,7 +60,7 @@ const TopBar = () => {
                   </button>
                </form>
             </div>
-            <div>User Notifications & Logout</div>
+            <div className=" ">User Notifications & Logout</div>
          </div>
       </section>
    );
