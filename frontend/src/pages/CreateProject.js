@@ -49,14 +49,11 @@ const CreateProject = () => {
 
    return (
       <div className="flex justify-center mt-10">
-         <div className=" shadow-md border border-sitedarkgray rounded-lg  p-4 sm:p-6 lg:p-8 min-w-[300px]  ">
+         <div className=" shadow-md border border-slate-800 rounded-lg  p-4 sm:p-6 lg:p-8 min-w-[300px]  ">
             {error && <div className="text-center text-red-700">{error}</div>}
 
-            <form
-               className="space-y-6 text-sitedarkgray"
-               onSubmit={handleSubmit}
-            >
-               <h3 className="text-xl font-medium text-center ">
+            <form className="space-y-6 text-slate-800" onSubmit={handleSubmit}>
+               <h3 className="text-2xl font-medium text-center ">
                   Create a Project
                </h3>
                <div>
@@ -65,7 +62,7 @@ const CreateProject = () => {
                      type="text"
                      onChange={(e) => setTitle(e.target.value)}
                      value={title}
-                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-sitedarkgray dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                     className="bg-gray-50 border border-gray-600 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                      placeholder="Project Name"
                   />
                </div>
@@ -79,7 +76,7 @@ const CreateProject = () => {
                      value={details}
                      placeholder="Details"
                      rows="5"
-                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-sitedarkgray dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                     className="bg-gray-50 border border-gray-600 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   />
                </div>
                <div className="flex items-start">
@@ -98,7 +95,7 @@ const CreateProject = () => {
                </div>
                <button
                   type="submit"
-                  className="w-full text-white bg-siteblue hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  "
+                  className="w-full text-white bg-blue-600 dark:bg-slate-800 hover:bg-blue-800 dark:hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  "
                >
                   Publish Project
                </button>

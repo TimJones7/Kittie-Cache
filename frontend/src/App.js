@@ -5,6 +5,10 @@ import { useState } from "react";
 // Pages & Components
 import Home from "./pages/Home";
 import CreateProject from "./pages/CreateProject";
+import MyProjects from "./pages/MyProjects";
+import MyTickets from "./pages/MyTickets";
+import MyProfile from "./pages/MyProfile";
+import FindProjects from "./pages/FindProjects";
 import SideNav from "./components/Nav";
 import TopBar from "./components/TopBar";
 import Footer from "./components/Footer";
@@ -31,6 +35,10 @@ function App() {
                   <Routes>
                      <Route path="/" element={<Home />} />
                      <Route path="/CreateProject" element={<CreateProject />} />
+                     <Route path="/MyProjects" element={<MyProjects />} />
+                     <Route path="/MyTickets" element={<MyTickets />} />
+                     <Route path="/MyProfile" element={<MyProfile />} />
+                     <Route path="/FindProjects" element={<FindProjects />} />
                   </Routes>
                </div>
             </BrowserRouter>
