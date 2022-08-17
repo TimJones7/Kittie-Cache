@@ -16,25 +16,69 @@ const Home = () => {
    }, []);
 
    return (
-      <div className=" border  p-4 ">
-         <table className=" table-auto ">
-            <thead>
-               <tr className=" p-4 ">
-                  <th className=" ">Title</th>
-                  <th className=" ">Details</th>
-                  <th className=" ">Due Date</th>
-                  <th className=" ">isPublic</th>
+      <div className=" overflow-x-auto border dark:border-slate-700 p-2 ">
+         <table className=" w-full ">
+            <thead className="  dark:text-sitelightgray">
+               <tr className=" p-2 dark:bg-slate-700 ">
+                  <th scope="col" className="text-left p-4 font-medium ">
+                     Title
+                  </th>
+                  <th scope="col" className="text-left p-4 font-medium ">
+                     Details
+                  </th>
+                  <th scope="col" className="text-left p-4 font-medium ">
+                     Due Date
+                  </th>
+                  <th scope="col" className="text-left p-4 font-medium ">
+                     isPublic
+                  </th>
+                  <th scope="col" className="text-left p-4 font-medium "></th>
                </tr>
             </thead>
 
             <tbody>
                {projects &&
                   projects.map((project) => (
-                     <tr key={project._id}>
-                        <td>{project.title}</td>
-                        <td>{project.details}</td>
-                        <td>{project.goalCompletionDate}</td>
-                        <td>{project.isPublic.toString()}</td>
+                     <tr key={project._id} className={tableRowStyles}>
+                        <td className="p-4">{project.title}</td>
+
+                        {project.details.length < 50 ? (
+                           <td className="p-4">{project.details}</td>
+                        ) : (
+                           <td className="p-4">
+                              {project.details.slice(0, 50)}...
+                           </td>
+                        )}
+
+                        <td className="p-4">{project.goalCompletionDate}</td>
+                        <td className="p-4">{project.isPublic.toString()}</td>
+                        <td className="p-4">
+                           <div>
+                              <a
+                                 type="button"
+                                 href="/"
+                                 class="p-1 "
+                                 title="Edit"
+                              >
+                                 <img
+                                    src="https://img.icons8.com/external-becris-lineal-becris/20/000000/external-edit-mintab-for-ios-becris-lineal-becris.png"
+                                    alt="Edit"
+                                 />
+                              </a>
+
+                              <a
+                                 type="button"
+                                 class="p-1 "
+                                 href="/"
+                                 title="DELETE!"
+                              >
+                                 <img
+                                    src="https://img.icons8.com/external-others-inmotus-design/20/000000/external-Delete-check-others-inmotus-design.png"
+                                    alt="Delete"
+                                 />
+                              </a>
+                           </div>
+                        </td>
                      </tr>
                   ))}
             </tbody>
@@ -44,3 +88,6 @@ const Home = () => {
 };
 
 export default Home;
+
+const tableRowStyles =
+   "border-b dark:border-slate-700 dark:hover:bg-slate-500 hover:bg-slate-400 dark:text-sitelightgray";

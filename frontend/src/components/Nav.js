@@ -40,8 +40,8 @@ const SideNav = () => {
 
    return (
       <div className=" flex-col fixed justify-between w-[20%] xl:w-[250px] h-screen bg-slate-300 dark:bg-slate-800 hidden md:flex border-r-2 ">
-         <div className="dark:bg-emerald-600 bg-cyan-600 p-4 text-center text-xl h-[60px] font-extrabold ">
-            My Kromanage
+         <div className="dark:bg-emerald-600 bg-cyan-600 p-4 text-center text-xl h-[60px] min-h-[60px] font-extrabold overflow-hidden">
+            MyKromanage
          </div>
          <ul className=" dark:text-sitelightgray text-slate-800 text-2xl justify-start">
             <hr />

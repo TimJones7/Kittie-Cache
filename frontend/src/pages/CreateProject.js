@@ -114,3 +114,7 @@ const CreateProject = () => {
 };
 
 export default CreateProject;
+
+/*
+   ADD CALL TO ACTION BANNER WITH 'what makes a good project' TYPE LINKS!!!
+*/

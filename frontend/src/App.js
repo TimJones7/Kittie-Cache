@@ -21,7 +21,7 @@ function App() {
    return (
       <main
          className={
-            isDark ? "flex bg-slate-600 dark" : "flex bg-sitelightgray "
+            isDark ? "flex bg-slate-600 dark" : "flex bg-slate-300 "
          }
       >
          <BrowserRouter>
