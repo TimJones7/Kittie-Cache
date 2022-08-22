@@ -14,14 +14,26 @@ namespace APIGateway.Controllers
     {
         private RestClient projClient = new RestClient("http://localhost:4000/api/projects");
 
+        private readonly ILogger<ProjectController> _logger;
+
+        public ProjectController(ILogger<ProjectController> logger)
+        {
+            _logger = logger;
+            _logger.LogInformation("Project Controller Hit...");
+        }
+
+        
+        //  Add error checking and log for those!
+
         [HttpGet]
         public IActionResult GetAllProjects()
         {
-            RestRequest request = new RestRequest();
-
+            _logger.LogInformation("Get All Public Projects Entry...");
             
+            RestRequest request = new RestRequest();
+            _logger.LogInformation("Fetching From Project Microservice...");
             var result = projClient.GetAsync(request).Result.Content;
-    
+            _logger.LogInformation("Sending Json Reponse Projects to client...");
             return Ok(result);
         }
     }
