@@ -14,6 +14,19 @@ var logger = new LoggerConfiguration()
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
 
+//builder.Host.UseSerilog((context, config) => 
+//{
+//    var connectionString = context.Configuration.GetConnectionString("DefaultConnection");
+
+//    config.WriteTo.PostgreSQL(connectionString, "GatewayLogs", needAutoCreateTable: true)
+//    .MinimumLevel.Information();
+
+//});
+
+
+
+
+
 
 builder.Services.AddControllers();
 
@@ -45,7 +58,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseSerilogRequestLogging();
+//app.UseSerilogRequestLogging();
 
 app.UseCors();
 

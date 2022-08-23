@@ -71,3 +71,6 @@ B:\node\MERN_Stack\APIGateway\bin\Debug\net6.0\Serilog.Settings.Configuration.dl
 B:\node\MERN_Stack\APIGateway\bin\Debug\net6.0\Serilog.Sinks.Console.dll
 B:\node\MERN_Stack\APIGateway\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
 B:\node\MERN_Stack\APIGateway\bin\Debug\net6.0\Serilog.Sinks.File.dll
+B:\node\MERN_Stack\APIGateway\bin\Debug\net6.0\Npgsql.dll
+B:\node\MERN_Stack\APIGateway\bin\Debug\net6.0\Serilog.Sinks.PeriodicBatching.dll
+B:\node\MERN_Stack\APIGateway\bin\Debug\net6.0\Serilog.Sinks.PostgreSQL.dll
