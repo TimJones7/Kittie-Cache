@@ -7,12 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 
-var logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(builder.Configuration)
-    .Enrich.FromLogContext()
-    .CreateLogger();
-builder.Logging.ClearProviders();
-builder.Logging.AddSerilog(logger);
+//var logger = new LoggerConfiguration()
+//    .ReadFrom.Configuration(builder.Configuration)
+//    .Enrich.FromLogContext()
+//    .CreateLogger();
+//builder.Logging.ClearProviders();
+//builder.Logging.AddSerilog(logger);
+
+
 
 //builder.Host.UseSerilog((context, config) => 
 //{
@@ -31,10 +33,10 @@ builder.Logging.AddSerilog(logger);
 builder.Services.AddControllers();
 
 
-builder.Services.AddDbContext<UserDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+//builder.Services.AddDbContext<UserDbContext>(options =>
+//{
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+//});
 
 
 builder.Services.AddCors(options =>
