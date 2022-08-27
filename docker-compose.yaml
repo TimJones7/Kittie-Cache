@@ -32,6 +32,9 @@ services:
   #   volumes:
   #     - ./frontend:/app
   #     - /app/node_modules
-
-
   #Add API Gateway and we are set! 
+  apiGateway:
+    build: ./APIGateway
+    container_name: apiGateway_c
+    ports:
+      -  '1000:1000'
