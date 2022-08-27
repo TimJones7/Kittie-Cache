@@ -5,30 +5,33 @@ services:
     container_name: commentService_c
     ports:
       - '3000:3000'
-    volumes:
-      - ./commentService:/app
-      - /app/node_modules
+    # volumes:
+    #   - ./commentService:/app
+    #   - /app/node_modules
   projectservice:
     build: ./projectService
     container_name: projectService_c
     ports:
       - '4000:4000'
-    volumes:
-      - ./projectService:/app
-      - /app/node_modules
+    # volumes:
+    #   - ./projectService:/app
+    #   - /app/node_modules
   ticketservice:
     build: ./ticketService
     container_name: ticketService_c
     ports:
       - '5000:5000'
-    volumes:
-      - ./ticketService:/app
-      - /app/node_modules
-  # frontend:
-  #   build: ./frontend
-  #   container_name: frontend_c
-  #   ports:
-  #     - '2000:2000'
+    # volumes:
+    #   - ./ticketService:/app
+    #   - /app/node_modules
+  frontend:
+    build: ./frontend
+    container_name: frontend_c
+    ports:
+      - '2000:2000'
   #   volumes:
   #     - ./frontend:/app
   #     - /app/node_modules
+
+
+  #Add API Gateway and we are set! 
