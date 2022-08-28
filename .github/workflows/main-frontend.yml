@@ -82,6 +82,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: root
+          passphrase: ${{ secrets.PASSPHRASE }}
           key: ${{ secrets.SSH_KEY }}
           script: |
             docker pull timjones7/my-kromanage-frontend:latest
