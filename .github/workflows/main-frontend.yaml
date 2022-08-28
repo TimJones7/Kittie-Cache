@@ -27,7 +27,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       
       - name: Navigate to changed directory
-
+        run: cd frontend
+        
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
