@@ -81,5 +81,5 @@ jobs:
             docker pull timjones7/my-kromanage-api-gateway:latest
             docker stop my-kromanage-api-gateway_c1 
             docker rm my-kromanage-api-gateway_c1
-            docker run --detach --publish 1000:1000 --name my-kromanage-api-gateway_c1 timjones7/my-kromanage-api-gateway:latest
+            docker run --detach --publish 1000:80 --name my-kromanage-api-gateway_c1 timjones7/my-kromanage-api-gateway:latest
             yes | docker image prune -a
