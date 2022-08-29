@@ -1,6 +1,6 @@
 FROM node:latest
 
-RUN npm install -g pm2
+#RUN npm install -g pm2
 
 WORKDIR /app
 
@@ -14,4 +14,4 @@ COPY . .
 
 EXPOSE 4000
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "start1"]
