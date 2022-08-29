@@ -1,4 +1,4 @@
-name: Publish Main-branch API Gateway Docker Image
+name: "KC-Main: API-Gateway_Publish"
 
 on:
   push:
@@ -39,7 +39,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            timjones7/my-kromanage-api-gateway
+            timjones7/kittie-cache-api-gateway
           flavor: |
             latest=false
           tags: |
@@ -78,8 +78,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            docker pull timjones7/my-kromanage-api-gateway:latest
-            docker stop my-kromanage-api-gateway_c1 
-            docker rm my-kromanage-api-gateway_c1
-            docker run --detach --publish 1000:1000 --name my-kromanage-api-gateway_c1 timjones7/my-kromanage-api-gateway:latest
+            docker pull timjones7/kittie-cache-api-gateway:latest
+            docker stop kittie-cache-api-gateway_c1 
+            docker rm kittie-cache-api-gateway_c1
+            docker run --detach --publish 1000:1000 --name kittie-cache-api-gateway_c1 timjones7/kittie-cache-api-gateway:latest
             yes | docker image prune -a
