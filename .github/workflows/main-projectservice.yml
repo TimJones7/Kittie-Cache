@@ -80,6 +80,6 @@ jobs:
           script: |
             docker pull timjones7/my-kromanage-projectservice:latest
             docker stop my-kromanage-projectservice_c1 
-            docker rm my-kromanage-projectservice_1
+            docker rm my-kromanage-projectservice_c1
             docker run --detach --publish 4000:4000 --name my-kromanage-projectservice_c1 timjones7/my-kromanage-projectservice:latest
             yes | docker image prune -a
