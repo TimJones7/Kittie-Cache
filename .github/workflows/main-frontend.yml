@@ -89,5 +89,5 @@ jobs:
             docker stop my-kromanage-frontend_c1 
             docker rm my-kromanage-frontend_c1
             docker run --detach --publish 2000:2000 --name my-kromanage-frontend_c1 timjones7/my-kromanage-frontend:latest
-
+            yes | docker image prune -a
           
