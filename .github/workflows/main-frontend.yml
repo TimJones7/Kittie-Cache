@@ -1,4 +1,4 @@
-name: "KC-Main: Frontend_Publish"
+name: "Main: Frontend_Publish"
 
 on:
   push:
