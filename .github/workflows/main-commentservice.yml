@@ -1,4 +1,4 @@
-name: "KC-Main: Comment-Service_Publish"
+name: "Main: Comment-Service_Publish"
 
 on:
   push:
