@@ -18,4 +18,4 @@ RUN dotnet publish "APIGateway.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "APIGateway.dll"]
+ENTRYPOINT ["dotnet", "APIGateway.dll", "--server.urls", "http://127.0.0.1:1000" ]
