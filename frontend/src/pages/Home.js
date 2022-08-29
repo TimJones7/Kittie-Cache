@@ -91,7 +91,7 @@ const Home = () => {
 
 export default Home;
 
-const fuckgithub = "fuckgithub";
+const fuckgithub = "does it work???";
 
 const tableRowStyles =
    "border-b dark:border-slate-700 dark:hover:bg-slate-500 hover:bg-slate-400 dark:text-sitelightgray";
