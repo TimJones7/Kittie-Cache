@@ -1,4 +1,4 @@
-name: Publish Main-branch Project Service Docker Image
+name: "Main: Project-Service_Publish"
 
 on:
   push:
@@ -39,7 +39,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            timjones7/my-kromanage-projectservice
+            timjones7/kittie-cache-projectservice
           flavor: |
             latest=false
           tags: |
@@ -78,8 +78,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            docker pull timjones7/my-kromanage-projectservice:latest
-            docker stop my-kromanage-projectservice_c1 
-            docker rm my-kromanage-projectservice_c1
-            docker run --detach --publish 4000:4000 --name my-kromanage-projectservice_c1 timjones7/my-kromanage-projectservice:latest
+            docker pull timjones7/kittie-cache-projectservice:latest
+            docker stop kittie-cache-projectservice_c1 
+            docker rm kittie-cache-projectservice_c1
+            docker run --detach --publish 4000:4000 --name kittie-cache-projectservice_c1 timjones7/kittie-cache-projectservice:latest
             yes | docker image prune -a
