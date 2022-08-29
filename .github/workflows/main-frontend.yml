@@ -96,6 +96,6 @@ jobs:
             docker pull timjones7/my-kromanage-frontend:latest
             docker stop my-kromanage-frontend 
             docker rm my-kromanage-frontend
-            docker run --detach --publish 2000:2000 -e --name my-kromanage-frontend_c1 timjones7/my-kromanage-frontend:latest
+            docker run --detach --publish 2000:2000 --name my-kromanage-frontend_c1 timjones7/my-kromanage-frontend:latest
 
           
