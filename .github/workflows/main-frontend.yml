@@ -8,7 +8,7 @@ name: Publish Main-branch Frontend Docker Image
 on:
   push:
     branches: ['main']
-    paths: ['frontend']
+    paths: ['frontend/**']
 
 jobs:
   build_and_push:
@@ -76,17 +76,18 @@ jobs:
     name: Sync New Image With Linode Server
     needs: "build_and_push"
     runs-on: ubuntu-latest
-    steps:
+    steps:    
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: root
           key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             docker pull timjones7/my-kromanage-frontend:latest
-            docker stop my-kromanage-frontend_c1 
-            docker rm my-kromanage-frontend_c1
-            docker run --detach --publish 2000:2000 -e --name my-kromanage-frontend_c1 timjones7/my-kromanage-frontend:latest
+            docker stop my-kromanage-frontend 
+            docker rm my-kromanage-frontend
+            docker run --detach --publish 2000:2000 --name my-kromanage-frontend_c1 timjones7/my-kromanage-frontend:latest
 
           
