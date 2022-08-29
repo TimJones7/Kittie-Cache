@@ -10,7 +10,7 @@ namespace APIGateway.Controllers
     [ApiController]
     public class CommentController : ControllerBase
     {
-        private RestClient commentClient = new RestClient("http://host.docker.internal:3000/api/comments");
+        private RestClient commentClient = new RestClient("http://localhost:3000/api/comments");
 
 
         [HttpGet]

@@ -44,7 +44,8 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-            policy.WithOrigins("http://localhost:2000");
+            //policy.WithOrigins("http://localhost:2000");
+            policy.AllowAnyOrigin();
         });
 });
 
