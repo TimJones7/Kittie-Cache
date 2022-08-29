@@ -1,4 +1,4 @@
-name: Publish Main-branch Comment Service Docker Image
+name: "KC-Main: Comment-Service_Publish"
 
 on:
   push:
@@ -39,7 +39,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            timjones7/my-kromanage-commentservice
+            timjones7/kittie-cache-commentservice
           flavor: |
             latest=false
           tags: |
@@ -78,8 +78,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            docker pull timjones7/my-kromanage-commentservice:latest
-            docker stop my-kromanage-commentservice_c1 
-            docker rm my-kromanage-commentservice_c1
-            docker run --detach --publish 3000:3000 --name my-kromanage-commentservice_c1 timjones7/my-kromanage-commentservice:latest
+            docker pull timjones7/kittie-cache-commentservice:latest
+            docker stop kittie-cache-commentservice_c1 
+            docker rm kittie-cache-commentservice_c1
+            docker run --detach --publish 3000:3000 --name kittie-cache-commentservice_c1 timjones7/kittie-cache-commentservice:latest
             yes | docker image prune -a
