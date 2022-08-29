@@ -8,7 +8,7 @@ name: Publish Main-branch Frontend Docker Image
 on:
   push:
     branches: ['main']
-    #paths: ['frontend']
+    paths: ['frontend/**']
 
 jobs:
   build_and_push:
@@ -76,15 +76,7 @@ jobs:
     name: Sync New Image With Linode Server
     needs: "build_and_push"
     runs-on: ubuntu-latest
-    steps:
-    
-      - name: Login to DockerHub
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_TOKEN }}
-    
+    steps:    
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
