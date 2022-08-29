@@ -1,0 +1,85 @@
+name: Publish Main-branch Project Service Docker Image
+
+on:
+  push:
+    branches: ['main']
+    paths: ['projectService/**']
+
+jobs:
+  build_and_push:
+    name: Build and Push Image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - name: Docker Setup QEMU
+        uses: docker/setup-qemu-action@v2.0.0
+
+      - name: Docker Setup Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v2.0.0
+
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+      - name: Login to DockerHub
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+    
+      - name: Docker meta
+        id: docker_meta
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            timjones7/my-kromanage-projectservice
+          flavor: |
+            latest=false
+          tags: |
+            type=raw,value=latest
+     
+      - name: Building and Pushing
+        id: docker_build
+        uses: docker/build-push-action@v3
+        with:
+          context: ./projectService
+          platforms: linux/amd64
+          builder: ${{ steps.buildx.outputs.name }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+          push: true
+          tags: ${{steps.docker_meta.outputs.tags}}
+          labels: ${{steps.docker_meta.outputs.labels}}
+
+      # Temp fix
+      # https://github.com/docker/build-push-action/issues/252
+      # https://github.com/moby/buildkit/issues/1896
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+  sync_with_linode:
+    name: Sync New Image With Linode Server
+    needs: "build_and_push"
+    runs-on: ubuntu-latest
+    steps:    
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: root
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: |
+            docker pull timjones7/my-kromanage-projectservice:latest
+            docker stop my-kromanage-projectservice_c1 
+            docker rm my-kromanage-projectservice_1
+            docker run --detach --publish 4000:4000 --name my-kromanage-projectservice_c1 timjones7/my-kromanage-projectservice:latest
+            yes | docker image prune -a
