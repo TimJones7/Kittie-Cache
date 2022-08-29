@@ -1,4 +1,4 @@
-name: "KC-Main: API-Gateway_Publish"
+name: "Main: API-Gateway_Publish"
 
 on:
   push:
