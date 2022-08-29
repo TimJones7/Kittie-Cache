@@ -29,10 +29,10 @@
     },
     "Docker": {
       "commandName": "Docker",
-      "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
-      "publishAllPorts": true,
-      "useSSL": true
+      "launchBrowser": false,
+      "launchUrl": "http://localhost:1000",
+      "publishAllPorts": false,
+      "useSSL": false
     }
   }
 }
