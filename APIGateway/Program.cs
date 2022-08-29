@@ -14,7 +14,6 @@ var builder = WebApplication.CreateBuilder(args);
 //builder.Logging.ClearProviders();
 //builder.Logging.AddSerilog(logger);
 
-//Placeholder Comment for change
 
 
 //builder.Host.UseSerilog((context, config) => 
