@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Publish Main-branch Frontend Docker Image
+name: "KC-Main: Frontend_Pub"
 
 on:
   push:
@@ -45,7 +45,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            timjones7/my-kromanage-frontend
+            timjones7/kittie-cache-frontend
           flavor: |
             latest=false
           tags: |
@@ -85,9 +85,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            docker pull timjones7/my-kromanage-frontend:latest
-            docker stop my-kromanage-frontend_c1 
-            docker rm my-kromanage-frontend_c1
-            docker run --detach --publish 2000:2000 --name my-kromanage-frontend_c1 timjones7/my-kromanage-frontend:latest
+            docker pull timjones7/kittie-cache-frontend:latest
+            docker stop kittie-cache-frontend_c1 
+            docker rm kittie-cache-frontend_c1
+            docker run --detach --publish 2000:2000 --name kittie-cache-frontend_c1 timjones7/kittie-cache-frontend:latest
             yes | docker image prune -a
           
