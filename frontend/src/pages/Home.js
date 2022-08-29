@@ -6,7 +6,7 @@ const Home = () => {
    useEffect(() => {
       const fetchProjects = async () => {
          const response = await fetch(
-            "http://localhost:1000/api-gateway/project"
+            "http://172.104.25.184:1000/api-gateway/project"
          );
          const json = await response.json();
 
