@@ -10,7 +10,7 @@ namespace APIGateway.Controllers
     [ApiController]
     public class CommentController : ControllerBase
     {
-        private RestClient commentClient = new RestClient("http://commentservice_c:3000/api/comments");
+        private RestClient commentClient = new RestClient("http://commentService_c:3000/api/comments");
 
 
         [HttpGet]
