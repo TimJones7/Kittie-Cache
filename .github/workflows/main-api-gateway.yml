@@ -81,5 +81,5 @@ jobs:
             docker pull timjones7/kittie-cache-api-gateway:latest
             docker stop kittie-cache-api-gateway_c1 
             docker rm kittie-cache-api-gateway_c1
-            docker run --detach --publish --network="host" 1000:80 --name kittie-cache-api-gateway_c1 timjones7/kittie-cache-api-gateway:latest
+            docker run --detach --publish --network=host 1000:80 --name kittie-cache-api-gateway_c1 timjones7/kittie-cache-api-gateway:latest
             yes | docker image prune -a
