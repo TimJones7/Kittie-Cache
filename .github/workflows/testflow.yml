@@ -8,7 +8,6 @@ on:
 jobs:
   testing_docker_compose:
     name: Sync New Image With Linode Server
-    needs: "build_and_push"
     runs-on: ubuntu-latest
     
     steps:
