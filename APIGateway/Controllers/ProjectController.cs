@@ -12,7 +12,9 @@ namespace APIGateway.Controllers
     [ApiController]
     public class ProjectController : ControllerBase
     {
+
         private RestClient projClient = new RestClient("http://projectService_c:4000/api/projects");
+
 
         private readonly ILogger<ProjectController> _logger;
 

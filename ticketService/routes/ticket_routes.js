@@ -10,19 +10,19 @@ const {
 
 const router = express.Router();
 
-//Get All Tickets-------------------------------------------------------
+//Get All Tickets------------------------------------------------------
 router.get("/", getTickets);
 
-//Get Single Ticket-----------------------------------------------------
+//Get Single Ticket----------------------------------------------------
 router.get("/:id", getTicketById);
 
-//POST New Ticket-------------------------------------------------------
+//POST New Ticket------------------------------------------------------
 router.post("/", createTicket);
 
-//DELETE Ticket---------------------------------------------------------
+//DELETE Ticket--------------------------------------------------------
 router.delete("/:id", deleteTicket);
 
-//PATCH Ticket----------------------------------------------------------
+//PATCH Ticket---------------------------------------------------------
 router.patch("/:id", updateTicket);
 
 module.exports = router;

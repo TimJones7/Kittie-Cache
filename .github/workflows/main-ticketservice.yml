@@ -1,4 +1,4 @@
-name: Publish Main-branch Ticket Service Docker Image
+name: "Main: Ticket-Service_Publish"
 
 on:
   push:
@@ -39,7 +39,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            timjones7/my-kromanage-ticketservice
+            timjones7/kittie-cache-ticketservice
           flavor: |
             latest=false
           tags: |
@@ -78,8 +78,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            docker pull timjones7/my-kromanage-ticketservice:latest
-            docker stop my-kromanage-ticketservice_c1 
-            docker rm my-kromanage-ticketservice_c1
-            docker run --detach --publish 5000:5000 --name my-kromanage-ticketservice_c1 timjones7/my-kromanage-ticketservice:latest
+            docker pull timjones7/kittie-cache-ticketservice:latest
+            docker stop kittie-cache-ticketservice_c1 
+            docker rm kittie-cache-ticketservice_c1
+            docker run --detach --publish 5000:5000 --name kittie-cache-ticketservice_c1 timjones7/kittie-cache-ticketservice:latest
             yes | docker image prune -a
