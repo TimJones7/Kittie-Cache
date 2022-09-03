@@ -1,0 +1,30 @@
+name: "Testing Docker Compose on Server"
+
+on:
+  push:
+    branches: ['main']
+    paths: ['.github/workflows/testflow.yml']
+
+jobs:
+  testing_docker_compose:
+    name: Sync New Image With Linode Server
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: root
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: |
+            cd /home/timjones/
+            rm -r testapp
+            mkdir testapp
+            cd testapp
+            git clone git@github.com:TimJones7/Kittie-Cache.git
+            cd Kittie-Cache
+            docker-compose down
+            echo "Y" | docker system prune -a
+            docker-compose up -d

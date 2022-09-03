@@ -14,7 +14,7 @@
       "launchBrowser": true,
       "launchUrl": "http://localhost:1000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_URLS": "http://+:80"
       },
       "applicationUrl": "http://localhost:1000",
       "dotnetRunMessages": true
@@ -24,7 +24,8 @@
       "launchBrowser": true,
       "launchUrl": "http://localhost:1000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://+:80"
       }
     },
     "Docker": {
@@ -35,7 +36,7 @@
         "ASPNETCORE_URLS": "http://+:80"
       },
       "httpPort": 1000,
-      "publishAllPorts": false,
+      "publishAllPorts": true,
       "useSSL": false
     }
   }

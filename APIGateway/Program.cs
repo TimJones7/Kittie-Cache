@@ -39,15 +39,15 @@ builder.Services.AddControllers();
 //});
 
 
-//builder.Services.AddCors(options =>
-//{
-//    options.AddDefaultPolicy(
-//        policy =>
-//        {
-//            //policy.WithOrigins("http://localhost:2000");
-//            policy.AllowAnyOrigin();
-//        });
-//});
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            //policy.WithOrigins("http://localhost:2000");
+            policy.AllowAnyOrigin();
+        });
+});
 
 
 
@@ -63,7 +63,7 @@ app.UseHttpsRedirection();
 
 //app.UseSerilogRequestLogging();
 
-//app.UseCors();
+app.UseCors();
 
 app.UseAuthorization();
 
