@@ -6,7 +6,7 @@ const Home = () => {
    useEffect(() => {
       const fetchProjects = async () => {
          const response = await fetch(
-            "http://localhost:1000/api-gateway/project"
+            "http://kittiecache-gateway.app/api-gateway/project"
          );
          const json = await response.json();
 
