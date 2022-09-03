@@ -10,7 +10,7 @@ namespace APIGateway.Controllers
     [ApiController]
     public class TicketController : ControllerBase
     {
-        private RestClient ticketClient = new RestClient("http://localhost:5000/api/tickets");
+        private RestClient ticketClient = new RestClient("http://ticketService_c:5000/api/tickets");
 
 
         [HttpGet]
