@@ -37,7 +37,7 @@
       },
       "httpPort": 1000,
       "publishAllPorts": true,
-      "useSSL": false
+      "useSSL": true
     }
   }
 }
