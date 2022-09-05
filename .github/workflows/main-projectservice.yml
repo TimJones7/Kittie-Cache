@@ -3,7 +3,7 @@ name: "Main: Project-Service_Publish"
 on:
   push:
     branches: ['main']
-    paths: ['projectService/**', '.github/workflows/projectservice.yml']
+    paths: ['projectService/**', '.github/workflows/main-projectservice.yml']
 
 jobs:
   build_and_push:
