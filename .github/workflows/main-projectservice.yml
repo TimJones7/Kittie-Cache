@@ -3,7 +3,7 @@ name: "Main: Project-Service_Publish"
 on:
   push:
     branches: ['main']
-    paths: ['projectService/**']
+    paths: ['projectService/**', '.github/workflows/projectservice.yml']
 
 jobs:
   build_and_push:
@@ -79,7 +79,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             docker pull timjones7/kittie-cache-projectservice:latest
-            docker stop kittie-cache-projectservice_c1 
-            docker rm kittie-cache-projectservice_c1
-            docker run --detach --publish 4000:4000 --name kittie-cache-projectservice_c1 timjones7/kittie-cache-projectservice:latest
+            docker stop projectService_c
+            docker rm projectService_c
+            docker run --detach --name projectService_c timjones7/kittie-cache-projectservice:latest
             yes | docker image prune -a
