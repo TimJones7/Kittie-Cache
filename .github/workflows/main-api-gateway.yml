@@ -79,7 +79,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             docker pull timjones7/kittie-cache-api-gateway:latest
-            docker stop kittie-cache-api-gateway_c1 
-            docker rm kittie-cache-api-gateway_c1
-            docker run --detach --publish 1000:80 --name kittie-cache-api-gateway_c1 timjones7/kittie-cache-api-gateway:latest
+            docker stop apiGateway_c 
+            docker rm apiGateway_c
+            docker run --detach --publish 1000:80 --name apiGateway_c timjones7/kittie-cache-api-gateway:latest
             yes | docker image prune -a
