@@ -81,5 +81,5 @@ jobs:
             docker pull timjones7/kittie-cache-ticketservice:latest
             docker stop ticketService_c 
             docker rm ticketService_c
-            docker run --detach --network kittie-cache_default --name ticketService_c timjones7/kittie-cache-ticketservice:latest
+            docker run --detach --network kittie-cache_default --name ticketService_c -e "PORT=${{ secrets.TICKETSERVICE_PORT }}" -e "MONGO_URI=${{ secrets.TICKETSERVICE_MONGO_URI }}"  timjones7/kittie-cache-ticketservice:latest
             yes | docker image prune -a
