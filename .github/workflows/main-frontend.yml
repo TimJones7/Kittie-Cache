@@ -81,8 +81,8 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             docker pull timjones7/kittie-cache-frontend:latest
-            docker stop kittie-cache-frontend_c1 
-            docker rm kittie-cache-frontend_c1
-            docker run --detach --publish 2000:2000 --name kittie-cache-frontend_c1 timjones7/kittie-cache-frontend:latest
+            docker stop frontend_c
+            docker rm frontend_c
+            docker run --detach --publish 2000:2000 --name frontend_c timjones7/kittie-cache-frontend:latest
             yes | docker image prune -a
           
