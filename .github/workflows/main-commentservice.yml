@@ -3,7 +3,7 @@ name: "Main: Comment-Service_Publish"
 on:
   push:
     branches: ['main']
-    paths: ['commentService/**']
+    paths: ['commentService/**', '.github/workflows/main-commentservice.yml']
 
 jobs:
   build_and_push:
@@ -79,7 +79,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             docker pull timjones7/kittie-cache-commentservice:latest
-            docker stop kittie-cache-commentservice_c1 
-            docker rm kittie-cache-commentservice_c1
-            docker run --detach --publish 3000:3000 --name kittie-cache-commentservice_c1 timjones7/kittie-cache-commentservice:latest
+            docker stop commentService_c 
+            docker rm commentService_c
+            docker run --detach --network kittie-cache_default --name commentService_c timjones7/kittie-cache-commentservice:latest
             yes | docker image prune -a
