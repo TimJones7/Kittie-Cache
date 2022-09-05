@@ -81,5 +81,5 @@ jobs:
             docker pull timjones7/kittie-cache-commentservice:latest
             docker stop commentService_c 
             docker rm commentService_c
-            docker run --detach --network kittie-cache_default --name commentService_c timjones7/kittie-cache-commentservice:latest
+            docker run --detach --network kittie-cache_default --name commentService_c -e "PORT=${{ secrets.COMMENTSERVICE_PORT }}" -e "MONGO_URI=${{ secrets.COMMENTSERVICE_MONGO_URI }}"  timjones7/kittie-cache-commentservice:latest
             yes | docker image prune -a
