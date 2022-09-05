@@ -3,7 +3,7 @@ name: "Main: Ticket-Service_Publish"
 on:
   push:
     branches: ['main']
-    paths: ['ticketService/**']
+    paths: ['ticketService/**',  '.github/workflows/main-ticketservice.yml']
 
 jobs:
   build_and_push:
@@ -79,7 +79,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             docker pull timjones7/kittie-cache-ticketservice:latest
-            docker stop kittie-cache-ticketservice_c1 
-            docker rm kittie-cache-ticketservice_c1
-            docker run --detach --publish 5000:5000 --name kittie-cache-ticketservice_c1 timjones7/kittie-cache-ticketservice:latest
+            docker stop ticketService_c 
+            docker rm ticketService_c
+            docker run --detach --network kittie-cache_default --name ticketService_c timjones7/kittie-cache-ticketservice:latest
             yes | docker image prune -a
