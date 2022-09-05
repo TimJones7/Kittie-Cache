@@ -83,3 +83,4 @@ jobs:
             docker rm projectService_c
             docker run --detach --name projectService_c timjones7/kittie-cache-projectservice:latest
             yes | docker image prune -a
+
