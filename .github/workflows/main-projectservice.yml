@@ -81,6 +81,6 @@ jobs:
             docker pull timjones7/kittie-cache-projectservice:latest
             docker stop projectService_c
             docker rm projectService_c
-            docker run --detach --network kittie-cache_default --name projectService_c timjones7/kittie-cache-projectservice:latest
+            docker run --detach --network kittie-cache_default --name projectService_c --env PORT=${{ secrets.PROJECTSERVICE_PORT }} timjones7/kittie-cache-projectservice:latest
             yes | docker image prune -a
 
